@@ -14,6 +14,8 @@ git clone <address of your github and repo>
 > [!TIP]
 > with this command you create **folder** of this project in your **desktop or any path you are** now in your pc
 
+> [!WARNING]
+> avoid **making change** to other's file and directory as much as possible
 
 #### The address you can clone with it is in your github and you can use http or SSH to create a remote for clone : 
 ![screen_shot_of_address_clone](./Screenshot%20from%202025-07-05%2011-33-12.png)
