@@ -28,7 +28,7 @@ git clone <address of your github and repo>
 | Method | Descriptions | 
 | -- | -- |
 | GET | get a file or document or any data from server | 
-| HEAD | request to server to get **only header** but **no data or file** from| server
+| HEAD | request to server to get **only header** but **no data or file** from server |
 | POST | send data to the server for processing |
 | PUT | **for updating** , to store the body of request on the server | 
 | TRACE | trace the message through the proxy server on a server | 
