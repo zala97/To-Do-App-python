@@ -21,7 +21,23 @@ git clone <address of your github and repo>
 ![screen_shot_of_address_clone](./Screenshot%20from%202025-07-05%2011-33-12.png)
 
 
-
+## How to install the packages for easy usage
+**use pipereqs to install or create requirements.txt file for your package**(_Recommended_)
+* first install the pipreqs : 
+    ```
+    pip install pipreqs
+    ```
+> [!TIP]
+> if you want create list of your package use : 
+    ```
+    pipreqs <path of your project and files>
+    ```
+    **this create requiremnets.txt of your packages**
+    
+* to install all package from requirements.txt : 
+    ```
+    pip install -r requirements.txt
+    ```
 
 ## Tips you should know !
 ### Http Methods
