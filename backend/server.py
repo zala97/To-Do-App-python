@@ -1,29 +1,55 @@
 import requests
 import redis
-from random import randint
+from datetime import datetime
+from time import sleep
+
+# connect to the redis server for implement the db
+R = redis.Redis(host='localhost' , port=6379 , decode_responses=True)
 
 
+def fetch_tasks():
+    print('Fetching tasks ...')
+    sleep(2)
+    # fetching task id from the server
+    taks_id = R.lrange('tasks_id' , 0 , -1)
+    # iterate on the list and get all detail of the tasks
+    print(taks_id)
+    for tid in taks_id:
+        task = R.hgetall(f'task:{tid}')
+        print(f'Task ID : {tid}')
+        print(f'Title : {task.get('Title')}')
+        print(f'Desc : {task.get('Desc')}')
+        print(f'Date : {task.get('Date')}')
+        print(f'Create at : {task.get('create at')}')
+        print('--------------------------------------------------')
+        
 
-hash_list = []
-print(hash_list)
-def RandomNumber():
-    rand_number = randint(1 , 1000)
-    return rand_number
+fetch_tasks()
+
 
 def set_connection():
-    R = redis.Redis(host='localhost' , port=6379 , decode_responses=True)
-    id_session = RandomNumber()    
-    # print(id_session)
-    hash_list.append(id_session)
+    
+    id_session = R.incr('task:id')    
+    # create the sturcture of the tasks
+    # maybe it changed
+    print('processing ...')
+    sleep(2) 
+    try : 
+        R.hset(f'task:{id_session}' , mapping={
+            'Title' : f'test 2',
+            'Desc' : f'this is for test',
+            'Date' : f'7/12/2025',
+            "create at": f"{datetime.today()}"
+        })
+        print('Task added Successfully.')
+    except Exception as err:
+        print(f'Error is : {err}')
+    finally:
+        print('done')
 
-    R.hset(f'user_request:{id_session}' , mapping={
-        'Title' : f'test1',
-        'Desc' : f'test2',
-        'Date' : f'test3'
-    })
-
-    print(R.hgetall('user_request:528'))
+    # pushing the tasks into the list to fetch them anytime
+    R.rpush('tasks_id' , id_session)
 
 
-set_connection()
+# set_connection()
 
