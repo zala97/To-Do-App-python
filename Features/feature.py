@@ -6,7 +6,7 @@ def Add_Task():
         Create the sturcture of the task and pass it to the server side
     '''
     # get the currnet date and time
-    current_date_time = datetime.today()
+    current_date_time = datetime.today().ctime()
 
     data_structure = {
         "Title" : '',
