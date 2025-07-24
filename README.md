@@ -27,6 +27,10 @@ git clone <address of your github and repo>
     ```
     pip install pipreqs
     ```
+* **or you can use freeze :**
+    ```
+    pip install freeze
+    ```
 > [!TIP]
 > if you want create list of your package use : 
     ```
@@ -34,6 +38,11 @@ git clone <address of your github and repo>
     ```
     **this create requiremnets.txt of your packages**
     
+> [!TIP]
+> craete with **freeze** is very simple : 
+    ```
+    pip freeze > requirements.txt
+    ```    
 * to install all package from requirements.txt : 
     ```
     pip install -r requirements.txt
