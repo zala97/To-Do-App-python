@@ -69,11 +69,18 @@ label_date = tb.Label(newtask_frame, text="Date",
 label_date.grid(row=6, column=0, padx=40, pady=5, sticky="w")
 # date_entry widget
 date_entry = tb.DateEntry(newtask_frame)
-date_entry.grid(row=7, column=0, padx=40, pady=20, sticky="w")
+date_entry.grid(row=7, column=0, padx=40, pady=10, sticky="w")
 
 ## Add button
 add_button = tb.Button(newtask_frame, text="add task", bootstyle="success")
 add_button.grid(row=9, column=0, pady=5)
+
+
+### Comment by Alimate
+## can you move the button below each other ? 
+## this can be prettier 
+## but totally it is work , yo *$*
+
 
 root.mainloop()
 
